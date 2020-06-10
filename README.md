@@ -1,38 +1,54 @@
 # Viral-Track
 
-Viral-Track is a R-based computational software based on **STAR** and **samtools** developped to detect and identify viruses from single-cell RNA-sequencing (scRNA-seq) raw data. This tool was tested on various scRNA-seq datasets derived from mouse and human infected samples as described in our paper *'Detecting and studying viral infection at the single-cell resolution using Viral-Track'*.  Viral-Track was tested on a CentOS 7 cluster and on an Ubuntu 18.0.4 workstation. 
+This is a forked version of Viral-Track [https://github.com/PierreBSC/Viral-Track]. It is a R-based computational software based on **STAR** and **samtools** to detect and identify viruses from single-cell RNA-sequencing (scRNA-seq) raw data. This tool was tested on various scRNA-seq datasets derived from mouse and human infected samples as described in our paper *'Detecting and studying viral infection at the single-cell resolution using Viral-Track'*. It has been also used to detect SARS-CoV-2 in scRNA-seq data in (here)[https://www.sciencedirect.com/science/article/pii/S0092867420305687]. This version of the repository tracks the changes made in order to run this in the Wayne State Univeristy High Performance Computing Grid.  
 
 
 Installation
 -------------
 
-Before running Viral-Track, several dependencies must be installed :
+Before running Viral-Track, several dependencies have been installed, but require loading the appropriate modules. 
 
-1 . The first step is to install [**R software**] (https://www.r-project.org/). Once this is done, several Bioconductor packages  have to be installed too. To do so start a R session and type :
 
+
+```bash
+module load R
+module load star
+module load samtools
+module load stringtie
+module load anaconda3.python
+conda activate umi-tools
+```
+
+1 . **R** 4.0.0 with all the packages. 
+```bash
+module load R
+```
 
 ```r
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-BiocManager::install(version = "3.10") 
 BiocManager::install(c("Biostrings", "ShortRead","doParallel","GenomicAlignments","Gviz","GenomicFeatures","Rsubread"))
 ```
 
-
-2 . **S**pliced **T**ranscript **A**lignment to **A** **R**eference (**STAR**) has to be installed. The full installation process is described on the STAR [Github](https://github.com/alexdobin/STAR). On Ubuntu this can be done directly by typing :
-
-```batch
-sudo apt-get install rna-star
+2 . **S**pliced **T**ranscript **A**lignment to **A** **R**eference (**STAR**) [Github](https://github.com/alexdobin/STAR).
+```bash
+module load star
 ```
-3 . **Samtools** suite is also required. The installation is described extensively [here](http://www.htslib.org/download/). On Ubuntu this is done by simply typing :
-
-```batch
-sudo apt-get install samtools
+3 . **Samtools** suite is also required, more details [here](http://www.htslib.org/download/). 
+```bash 
+module load samtools
 ```
 
-4 . The transcript assembler **StringTie** is needed. This installation process is described [here](https://ccb.jhu.edu/software/stringtie/). Don't forget to add StringTie to your shell's PATH directory.
+4 . The transcript assembler **StringTie** described [here](https://ccb.jhu.edu/software/stringtie/) is needed. 
+```bash 
+module load stringtie
+```
 
-5 . For the single cell demultiplexing we will use **UMI-tools** and the R package **RSubread**. Installation of **UMI-tools** is described [here](https://github.com/CGATOxford/UMI-tools).
+5 . For the single cell demultiplexing we will use **UMI-tools** and the R package **RSubread**. See **UMI-tools** details [here](https://github.com/CGATOxford/UMI-tools).
+```bash 
+module load anaconda3python
+conda activate umi-tools
+```
+
+
 
 Creation of the  Index and of the annotation file 
 ----------
