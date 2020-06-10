@@ -1,6 +1,6 @@
 # Viral-Track
 
-This is a forked version of Viral-Track [https://github.com/PierreBSC/Viral-Track]. It is a R-based computational software based on **STAR** and **samtools** to detect and identify viruses from single-cell RNA-sequencing (scRNA-seq) raw data. This tool was tested on various scRNA-seq datasets derived from mouse and human infected samples as described in our paper *'Detecting and studying viral infection at the single-cell resolution using Viral-Track'*. It has been also used to detect SARS-CoV-2 in scRNA-seq data in (here)[https://www.sciencedirect.com/science/article/pii/S0092867420305687]. This version of the repository tracks the changes made in order to run this in the Wayne State Univeristy High Performance Computing Grid.  
+This is a forked version of Viral-Track [https://github.com/PierreBSC/Viral-Track]. It is a R-based computational software based on **STAR** and **samtools** to detect and identify viruses from single-cell RNA-sequencing (scRNA-seq) raw data. This tool was tested on various scRNA-seq datasets derived from mouse and human infected samples as described in our paper *'Detecting and studying viral infection at the single-cell resolution using Viral-Track'*. It has been also used to detect SARS-CoV-2 in scRNA-seq data in [here](https://www.sciencedirect.com/science/article/pii/S0092867420305687). This version of the repository tracks the changes made in order to run this in the Wayne State Univeristy High Performance Computing Grid.  
 
 
 Installation
