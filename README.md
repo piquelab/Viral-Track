@@ -45,7 +45,7 @@ module load stringtie
 5 . For the single cell demultiplexing we will use **UMI-tools** and the R package **RSubread**. See **UMI-tools** details [here](https://github.com/CGATOxford/UMI-tools).
 ```bash 
 module load anaconda3python
-conda activate umi-tools
+conda activate umitools
 ```
 
 
