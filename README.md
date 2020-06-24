@@ -72,7 +72,11 @@ Lastly you need to create a small file that list all the viruses included in the
 Pre-processing of the single data
 ----
 
-Before running any analysis we advise the user to perform the first steps of the demultiplexing on the  raw fastq data. This can be done using **UMI-tools** and is easy for droplet based techniques such as DROP-seq and 10X. An extensive tutorial can be found [here](https://github.com/CGATOxford/UMI-tools/blob/master/doc/Single_cell_tutorial.md). The user should stop at step 3 (included) in order to get filtered and annotated fastq files with the cellular and UMI barcode in the sequence header.
+Before running any analysis we advise the user to perform the first steps of the demultiplexing on the  raw fastq data. This can be done using **UMI-tools** and is easy for droplet based techniques such as DROP-seq and 10X. An extensive tutorial can be found [here](https://github.com/CGATOxford/UMI-tools/blob/master/doc/Single_cell_tutorial.md). The user should stop at step 3 (included) in order to get filtered and annotated fastq files with the cellular and UMI barcode in the sequence header. An example of this is also included int the script `extractUMIs.sh`, adjust variables accordingly:
+
+```batch
+bash extractUMIs.sh 
+```
 
 Detection of viruses in scRNA-seq data
 ---------------
