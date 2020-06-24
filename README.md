@@ -54,14 +54,17 @@ Creation of the  Index and of the annotation file
 ----------
 
 The first step consists in creating a **STAR** index that include both host and virus reference genomes.
-To do so first download the **ViruSite**  [genome reference database](http://www.virusite.org/index.php?nav=download). Host genome has also to be downloaded from the [ensembl website](https://www.ensembl.org/info/data/ftp/index.html). 
+To do so first download the **ViruSite**  [genome reference database](http://www.virusite.org/index.php?nav=download). Host genome has also to be downloaded from the [ensembl website](https://www.ensembl.org/info/data/ftp/index.html). Data from **ViruSite** has been downloaded here `/wsu/home/groups/piquelab/data/viralGenomes/genomes.fasta`. 
+The Ensamble version we will use should probably be the same as the one used by cellranger `/wsu/home/groups/piquelab/data/refGenome10x/refdata-cellranger-hg19-3.0.0/fasta/genome.fa`. 
 This can take some time and requires large amount of memory and storage space : please check that you have at least 32 GB of RAM and more than 100GB of avaible memory.
 
 The  **STAR** index can now be built by typing :
 
+
 ```batch
-mkdir /path/to/index
-STAR --runThreadN N --runMode genomeGenerate --genomeDir /path/to/index --genomeFastaFiles /path/to/Virusite_file.fa  path/to/Host_genome_chromosome*.fa 
+mkdir index
+cd index
+STAR --runThreadN N --runMode genomeGenerate --genomeDir ./ --genomeFastaFiles /wsu/home/groups/piquelab/data/viralGenomes/genomes.fasta  /wsu/home/groups/piquelab/data/refGenome10x/refdata-cellranger-hg19-3.0.0/fasta/genome.fa
 ```
 
 Lastly you need to create a small file that list all the viruses included in the index and their genome length. We provide an example in the Github that corresponds to the VirusSite dataset.
