@@ -16,7 +16,7 @@ module load star
 module load samtools
 module load stringtie
 module load anaconda3.python
-conda activate umi-tools
+conda activate umitools
 ```
 
 1 . **R** 4.0.0 with all the packages. 
