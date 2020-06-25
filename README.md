@@ -98,7 +98,8 @@ Before running any scanning analysis check the parameter file and make sure that
 Once this is done you can launch the analysis using :
 
 ```batch
-Rscript Viral_Track_scanning.R Path/to/Parameter_file.txt Path/to/Target_file.txt
+##Rscript Viral_Track_scanning.R Path/to/Parameter_file.txt Path/to/Target_file.txt
+Rscript Viral_Track_scanning.R Parameters.txt Files_to_process.txt 
 ```
 If you want to launch it in the background use instead :
 
