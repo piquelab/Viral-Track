@@ -163,9 +163,10 @@ registerDoParallel(cl)
 #A)Loading
 
 Parameter_target_files = args[2]
-File_to_process = read.table(Parameter_target_files,header = F,sep = "\t")
-File_to_process = as.character(File_to_process$V1)
-File_to_process = unique(File_to_process)
+#File_to_process = read.table(Parameter_target_files,header = F,sep = "\t")
+#File_to_process = as.character(File_to_process$V1)
+#File_to_process = unique(File_to_process)
+File_to_process=Parameter_target_files
 
 #B)Checking the values
 
@@ -303,7 +304,10 @@ for (k in List_output_path) {
                           KI270334.1","KI270429.1","KI270393.1","KI270516.1","KI270389.1","KI270466.1","KI270388.1","KI270544.1,
                           KI270310.1","KI270412.1","KI270395.1","KI270376.1","KI270337.1","KI270335.1","KI270378.1","KI270379.1,
                         KI270329.1","KI270419.1","KI270336.1","KI270312.1","KI270539.1","KI270385.1","KI270423.1","KI270392.1","KI270394.1")
-  
+
+  Chromosome_to_remove = read.table("host.seq.txt")[,1]
+
+    
   temp_chromosome_count = temp_chromosome_count[!rownames(temp_chromosome_count)%in%Chromosome_to_remove,] ##All viral "chromosome start with a "NC"
   temp_chromosome_count = temp_chromosome_count[temp_chromosome_count$Mapped_reads>Minimal_read_mapped,]
   
