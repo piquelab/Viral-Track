@@ -18,16 +18,16 @@ echo $PWD
 
 
 
-cat newLibList.txt | \
-while read col1 col2;
+cat libList.txt | \
+while read col1;
 do 
 ##    fastqs=`find ${fastqfolder} -name "${sample}*fastq.gz" | sed 's/\/SCAIP.*//' | sort | uniq`
 ##    fastqlist=`echo ${fastqs} | tr ' ' ,`
     echo "#################"
-    echo $col1 $col2
+    echo $col1
 ##    echo $fastqlist
     echo "cd $PWD; module load R; module unload ptython; 
-time bash extractUMIs.sh $col1 $col2" | qsub -q wsuq -l nodes=1:ppn=10 -l mem=80g -N $col2
+time bash extractUMIs.sh $col1" | qsub -q wsuq -l nodes=1:ppn=10 -l mem=80g -N $col2
  ##   sleep 0.5;
 done
 
